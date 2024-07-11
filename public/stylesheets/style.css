@@ -6,3 +6,13 @@ body {
 a {
   color: #00B7FF;
 }
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+#container {
+  width: 100%;
+  height: auto;
+}
