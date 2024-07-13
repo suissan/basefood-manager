@@ -39,11 +39,15 @@ async function getBaseInfo() {
         });
         return list;
     });
-    console.log("今回のベースブレッドの初期値");
-    for (let ele of boughtNumberArray) {
-        console.log(`${ele.name}: 残り${ele.number}個`);
-    }
+
+    //console.log("今回のベースブレッドの初期値");
+    //for (let ele of boughtNumberArray) {
+    //    console.log(`${ele.name}: 残り${ele.number}個`);
+    //}
+
     await browser.close();
+
+    return boughtNumberArray;
 }
 
 module.exports = {
