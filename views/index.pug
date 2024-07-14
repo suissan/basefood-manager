@@ -1,12 +1,17 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 ベースフード管理システム（仮）
+  form(action="/get-my-info", method="get") 
+    button(type="submit") 取得する
   div#container
   p#process
+  ul 
+    if (products)
+      each product in products 
+        li #{product.name}: 残り#{product.number}
   p#result
-  form(action="/post" method="POST")
+  form(action="/update" method="POST")
     input(type="text" name="input")#input
     button(type="submit") 送信
   script(src="javascripts/barcode.js")

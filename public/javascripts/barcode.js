@@ -37,8 +37,7 @@ Quagga.onProcessed((result) => {
 });
 
 Quagga.onDetected((result) => {
-    const input = document.getElementById("input");
-    input.value = result.codeResult.code;
+    document.getElementById("input").value = result.codeResult.code;
     document.querySelector("#result").textContent = result.codeResult.code;
 });
 
