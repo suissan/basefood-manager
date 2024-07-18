@@ -11,7 +11,8 @@ block content
       each product in products 
         li #{product.name}: 残り#{product.number}
   p#result
-  form(action="/update" method="POST")
+  form(action="/products/add" method="POST")
     input(type="text" name="input")#input
-    button(type="submit") 送信
+    button(type="submit") 追加
+    p ※「追加」は月に一度、商品が届きたときに押して下さい。
   script(src="javascripts/barcode.js")

@@ -25,7 +25,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
-app.use('/update', manageNumberRouter);
+//app.use('/update', manageNumberRouter);
+
+app.use('/products/add', manageNumberRouter);
 
 //app.use('/get-my-info', myInfoRouter);
 
