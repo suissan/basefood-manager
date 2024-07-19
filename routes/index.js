@@ -2,15 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 const baseManager = require("../get-basefood-info");
-
-//const { connection } = require('../app.js');
+const connection = require("../db");
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
   const sql = "SELECT * FROM products_stocks";
-  //connection.query(sql, (err, results) => {
-  //  console.log(results);
-  //});
+  connection.query(sql, (err, results) => {
+    console.log(results);
+  });
   res.render('index');
 });
 
