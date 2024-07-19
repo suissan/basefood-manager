@@ -3,32 +3,12 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-//const mysql = require("mysql");
 
 const indexRouter = require('./routes/index');
 
 const manageNumberRouter = require('./routes/manage-number');
 
-//const myInfoRouter = require('./routes/my-info.js');
-
 const app = express();
-
-// 使用するデータベースの情報を記述
-//const connection = mysql.createConnection({
-//  host: 'localhost',
-//  user: 'root',
-//  password: "u6e67u958b",
-//  database: 'base'
-//});
-//
-//// データ・ベース接続時のログ
-//connection.connect((err) => {
-//  if (err) {
-//    console.log(`error connecting: ${err.stack}`);
-//    return;
-//  }
-//  console.log('success!');
-//});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,12 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', indexRouter);
-
-//app.use('/update', manageNumberRouter);
-
 app.use('/products/add', manageNumberRouter);
-
-//app.use('/get-my-info', myInfoRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
