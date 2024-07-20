@@ -8,10 +8,10 @@ router.get('/add-stocks', async function (req, res, next) {
   const selectSql = "SELECT name FROM products_stocks WHERE name = ?";
   const insertSql = "INSERT INTO products_stocks (name, stock) VALUES ?";
   const updateSql = "UPDATE products_stocks SET stock = ? WHERE name = ?";
-  
+
   try {
     const products = await baseManager.getBaseInfo();
-    
+
     for (const product of products) {
       const results = await new Promise((resolve, reject) => {
         connection.query(selectSql, [product.name], (err, results) => {
@@ -51,16 +51,36 @@ router.get('/add-stocks', async function (req, res, next) {
     }
 
     res.redirect("/");
+
   } catch (error) {
     // エラーハンドリング
     res.status(500).send("エラーが発生しました");
   }
 });
 
-/* POST data */
-router.post('/update-stock', function (req, res, next) {
+/* POST update-stock(在庫変更) */
+router.post('/update-stock', async function (req, res, next) {
   console.log(req.body.input);
-  res.redirect("/");
+  try {
+    const updateSql = "UPDATE products_stocks SET stock = stock - 1 WHERE code = ?";
+
+    await new Promise((resolve, reject) => {
+      connection.query(updateSql, [req.body.input], (err, results) => {
+        if (err) {
+          console.log(err);
+          reject(err);
+        } else {
+          resolve();
+        }
+      });
+    });
+
+    res.redirect("/");
+
+  } catch (error) {
+    // エラーハンドリング
+    res.status(500).send("エラーが発生しました");
+  }
 });
 
 module.exports = router;
