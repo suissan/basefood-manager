@@ -36,9 +36,20 @@ Quagga.onProcessed((result) => {
 
 });
 
+
+let code;
+let count = 0;
 Quagga.onDetected((result) => {
-    document.getElementById("input").value = result.codeResult.code;
-    document.querySelector("#result").textContent = result.codeResult.code;
+    if (code == result.codeResult.code) {
+        count++;
+    } else {
+        count = 0;
+        code = result.codeResult.code;
+    }
+    if (count >= 3 && /^45/.test(code)) {
+        document.getElementById("input").value = code;
+        document.querySelector("#result").textContent = code;
+    }
 });
 
 
