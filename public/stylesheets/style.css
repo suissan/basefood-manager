@@ -1,20 +1,35 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-
-a {
-  color: #00B7FF;
-}
-body {
+  width: 960px;
+  height: 830px;
   margin: 0;
   padding: 0;
   box-sizing: 0;
 }
 
+a {
+  color: #00B7FF;
+}
+
+.title {
+  background-color: red;
+  
+}
+
 #container {
+  width: auto;
   height: auto;
   text-align: center;
   margin: 0 auto;
+  position: relative;
 }
 
+#container video {
+  width: 300px;
+  position: absolute;
+}
+
+#container canvas {
+  position: absolute;
+  width: 300px;
+}
