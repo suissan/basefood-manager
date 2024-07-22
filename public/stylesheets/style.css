@@ -1,7 +1,7 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   width: 960px;
-  height: 830px;
+  height: 470px;
   margin: 0;
   padding: 0;
   box-sizing: 0;
@@ -12,24 +12,47 @@ a {
 }
 
 .title {
-  background-color: red;
-  
+  text-align: center;
+}
+
+.head {
+  margin: 5px 20px;
+}
+
+.head p {
+  line-height: 0.5;
+}
+
+.form-result {
+  position: relative;
+}
+
+.form-result form {
+  right: 170px;
+  bottom: 40px;
+  position: absolute;
+}
+
+.form-result #result {
+  position: absolute;
+  right: 100px;
+  bottom: 1px;
 }
 
 #container {
-  width: auto;
-  height: auto;
-  text-align: center;
-  margin: 0 auto;
   position: relative;
 }
 
 #container video {
   width: 300px;
+  top: 10px;
+  right: 100px;
   position: absolute;
 }
 
 #container canvas {
-  position: absolute;
   width: 300px;
+  top: 10px;
+  right: 100px;
+  position: absolute;
 }
