@@ -11,12 +11,13 @@ block content
     form(action="/products/update-stock" method="POST")
       input(type="text" name="input")#input
       button(type="submit") 追加
-    p#result 選択した商品: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      p#result 選択した商品: #[span.product-name]
   div#container
-    div.camera-canvas
   div.contents
     ul 
       if (products)
         each product in products 
-          li #{product.name}: 残り#{product.stock}
+          li #{product.name}: 残り #{product.stock}
   script(src="javascripts/barcode.js")
+  
+  

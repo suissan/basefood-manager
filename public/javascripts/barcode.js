@@ -48,7 +48,7 @@ Quagga.onDetected((result) => {
     }
     if (count >= 3 && /^45/.test(code)) {
         document.getElementById("input").value = code;
-        document.querySelector("#result").textContent = `選択した商品: ${code}`;
+        document.querySelector(".product-name").textContent = code;
     }
 });
 
