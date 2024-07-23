@@ -4,7 +4,7 @@ const connection = require("../db");
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  const sql = "SELECT name, stock FROM products_stocks";
+  const sql = "SELECT name, stock, code FROM products_stocks";
   connection.query(sql, (err, results) => {
     res.render('index', { products: results });
     console.log(results);

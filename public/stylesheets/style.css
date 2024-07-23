@@ -23,10 +23,11 @@ body {
   position: relative;
 }
 
-.form-result form {
-  right: 170px;
-  bottom: 0;
+.form-result .container {
   position: absolute;
+  right: 0;
+  bottom: 2px;
+  width: 40%;
 }
 
 .form-result input {
@@ -38,27 +39,18 @@ body {
   margin-left: 10px;
 }
 
-
 .form-result p {
   line-height: 0.5;
   margin-bottom: 0;
 }
 
-
-#container {
+.camera-canvas {
   position: relative;;
 }
 
-#container video {
+.camera-canvas video, .camera-canvas canvas {
   width: 300px;
-  right: 120px;
-  top: 20px;
-  position: absolute;
-}
-
-#container canvas {
-  width: 300px;
-  right: 120px;
+  right: 10%;
   top: 20px;
   position: absolute;
 }

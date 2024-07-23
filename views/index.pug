@@ -8,16 +8,18 @@ block content
       p ※「取得」は月に一度、商品が届きたときに押して下さい。
       p &nbsp; &nbsp; 公式マイページから当月買った個数を取得します。
   div.form-result
-    form(action="/products/update-stock" method="POST")
-      input(type="text" name="input")#input
-      button(type="submit") 追加
-      p#result 選択した商品: #[span.product-name]
-  div#container
+    div.container
+      form(action="/products/update-stock" method="POST")
+        input(type="text" name="input")#input
+        button(type="submit") いただきます！
+      p#result 選択した商品: #[span#productName]
+  div#cameraCanvas.camera-canvas
   div.contents
     ul 
       if (products)
         each product in products 
-          li #{product.name}: 残り #{product.stock}
+          li#productDisplay #{product.name}: 残り #{product.stock}
+            input(type="hidden" value=product.code).productCode
   script(src="javascripts/barcode.js")
   
   

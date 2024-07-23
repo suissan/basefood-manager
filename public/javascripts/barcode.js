@@ -3,7 +3,7 @@
 Quagga.init({
     inputStream: {
         type: "LiveStream",
-        target: document.querySelector('#container')
+        target: document.querySelector('#cameraCanvas')
     },
     constraints: {
         facingMode: "environment"
@@ -48,9 +48,18 @@ Quagga.onDetected((result) => {
     }
     if (count >= 3 && /^45/.test(code)) {
         document.getElementById("input").value = code;
-        document.querySelector(".product-name").textContent = code;
+        document.querySelector("#productName").textContent = getProductName(code);
     }
 });
 
 
-console.log("test");
+function getProductName(code) {
+    const getProducts = document.querySelectorAll("#productDisplay");
+    console.log(getProducts)
+    for (let product of getProducts) {
+        if (product.lastChild.value == code) {
+            const productName = product.firstChild.textContent.split(":")[0];
+            return productName;
+        }
+    }
+}
