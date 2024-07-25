@@ -1,4 +1,3 @@
-//const { all } = require('../routes');
 const loader = require('./sequelize-loader');
 const Sequelize = loader.Sequelize;
 
@@ -25,15 +24,15 @@ const stock = loader.database.define(
         },
         createdAt: {
             type: Sequelize.DATE,
-            allowNull: true
+            allowNull: false
         },
         updatedAt: {
             type: Sequelize.DATE,
-            allowNull: true
+            allowNull: false
         }
     },
 );
 
-stock.sync({force: true});
+stock.sync({ force: true });
 
 module.exports = stock;
