@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const router = express.Router();
 const baseManager = require("../get-basefood-info");
@@ -5,7 +7,7 @@ const Stock = require("../models/stock");
 const loader = require('../models/sequelize-loader');
 const Sequelize = loader.Sequelize;
 
-// 個数を取得し表示する
+/* 個数を取得し表示する */
 router.get('/add-stocks', async (req, res, next) => {
   try {
     const products = await baseManager.getBaseInfo();
@@ -30,10 +32,14 @@ router.get('/add-stocks', async (req, res, next) => {
   }
 });
 
-/* POST update-stock(在庫変更) */
+/* 在庫管理（在庫を1つ減らす） */
 router.post('/update-stock', async (req, res, next) => {
   try {
     await Stock.update({ stock: Sequelize.literal('stock - 1') }, { where: { code: req.body.verifyCode } });
+    //const result = await Stock.update({ stock: Sequelize.literal('stock - 1') }, { where: { code: req.body.verifyCode } });
+    if (!result) {
+      // 未実装
+    }
 
     res.redirect("/");
 
@@ -44,16 +50,18 @@ router.post('/update-stock', async (req, res, next) => {
   }
 });
 
+/* バーコードを登録する */
 router.post('/register-code', async (req, res, next) => {
   const registerInfo = req.body.registerCode;
   const productCode = registerInfo.split(" ")[0]; // バーコード
   const productName = registerInfo.split(" ")[1]; // 商品名
 
   try {
-    const product = await Stock.findOne({ where: { name: productName } });
-    if (!product) {
-    } 
-    await Stock.update({ code: productCode }, { where: { name: product.name} });
+    const result = await Stock.findOne({ where: { name: productName } });
+    if (!result) {
+      // 未実装
+    }
+    await Stock.update({ code: productCode }, { where: { name: result.name } });
 
     res.redirect("/");
 

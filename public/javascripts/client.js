@@ -1,10 +1,11 @@
-"use strict";
+'use strict';
 
 const modeManage = document.getElementById("manage");
 const modeRegister = document.getElementById("register");
 const formResult = document.getElementById("formResult");
 const formCode = document.getElementById("formCode");
 
+/* バーコードリーダーの設定 */
 Quagga.init({
     inputStream: {
         type: "LiveStream",
@@ -26,6 +27,7 @@ Quagga.init({
         Quagga.start();
     });
 
+/* バーコードを読み取ったあとの処理（枠で囲う等） */
 Quagga.onProcessed((result) => {
     let ctx = Quagga.canvas.ctx.overlay;
     let canvas = Quagga.canvas.dom.overlay;
@@ -41,7 +43,7 @@ Quagga.onProcessed((result) => {
 
 });
 
-
+/* バーコードを完全に読み取った後の処理（読み取ったコード・商品名を表示等） */
 let code;
 let count = 0;
 Quagga.onDetected((result) => {
@@ -52,41 +54,41 @@ Quagga.onDetected((result) => {
         code = result.codeResult.code;
     }
     if (count >= 3 && /^45/.test(code)) {
-        if (!manage.checked) {
-            console.log("コード登録")
+        if (!modeManage.checked) {
+            console.log("コード登録モードだよ")
             document.getElementById("registerCodeInput").value = code;
             return;
         }
-        console.log("在庫管理")
+        console.log("在庫管理モードだよ")
         document.getElementById("verifyCodeInput").value = code;
-        document.querySelector("#productName").textContent = getProductName(code);
+        document.getElementById("productName").textContent = getProductName(code);
     }
 });
 
-
+/**
+ * 商品名を返す関数
+ * @param {String} code リーダーで読み取ったコード
+ * @returns 商品名
+ */
 function getProductName(code) {
-    const getProducts = document.querySelectorAll("#productDisplay");
-    console.log(getProducts)
+    const getProducts = document.querySelectorAll(".productDisplay");
     for (let product of getProducts) {
         if (product.lastChild.value == code) {
-            const productName = product.firstChild.textContent.split(":")[0];
-            return productName;
+            return product.firstChild.textContent.split(":")[0]; // 商品名を取得
         }
     }
 }
 
-
-
+/* ラジオボタンで在庫管理フォームの表示 */
 modeManage.addEventListener("change", () => {
     if (modeManage.checked) {
-        console.log("ラジオテスト")
         formResult.style.visibility = "visible";
         formCode.style.visibility = "hidden";
     }
 });
 
+/* ラジオボタンでバーコード登録フォームを表示 */
 modeRegister.addEventListener("change", () => {
-    console.log("test2")
     if (modeRegister.checked) {
         formCode.style.visibility = "visible";
         formResult.style.visibility = "hidden";

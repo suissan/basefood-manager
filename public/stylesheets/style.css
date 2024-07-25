@@ -6,7 +6,7 @@ body {
   padding: 0;
   box-sizing: 0;
   color: #c7c7c7;
-  background-color: rgba(40,39,44,1);
+  background-color: rgba(40, 39, 44, 1);
 }
 
 .title {
@@ -22,7 +22,8 @@ body {
   color: #d2ad32;
 }
 
-.form-result, .form-code {
+.form-result,
+.form-code {
   position: relative;
 }
 
@@ -100,7 +101,8 @@ body {
   position: relative;
 }
 
-.camera-canvas video, .camera-canvas canvas {
+.camera-canvas video,
+.camera-canvas canvas {
   width: 300px;
   right: 10%;
   top: 20px;

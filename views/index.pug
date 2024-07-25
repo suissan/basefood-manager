@@ -32,8 +32,6 @@ block content
     ul 
       if (products)
         each product in products 
-          li#productDisplay #{product.name}: 残り #{product.stock}
+          li.productDisplay #{product.name}: 残り #{product.stock}
             input(type="hidden" value=product.code).productCode
-  script(src="javascripts/barcode.js")
-  
-  
+  script(src="javascripts/client.js")
