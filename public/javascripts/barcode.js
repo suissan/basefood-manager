@@ -47,7 +47,7 @@ Quagga.onDetected((result) => {
         code = result.codeResult.code;
     }
     if (count >= 3 && /^45/.test(code)) {
-        document.getElementById("input").value = code;
+        document.getElementById("verifyCodeInput").value = code;
         document.querySelector("#productName").textContent = getProductName(code);
     }
 });
@@ -63,3 +63,25 @@ function getProductName(code) {
         }
     }
 }
+
+const modeManage = document.getElementById("manage");
+const modeResister = document.getElementById("resister");
+const formResult = document.getElementById("formResult");
+const formCode = document.getElementById("formCode");
+
+
+modeManage.addEventListener("change", ()=> {
+    if (modeManage.checked) {
+        console.log("ラジオテスト")
+        formResult.style.visibility = "visible";
+        formCode.style.visibility = "hidden";
+    }
+});
+
+modeResister.addEventListener("change", ()=> {
+    console.log("test2")
+    if (modeResister.checked) {
+        formCode.style.visibility = "visible";
+        formResult.style.visibility = "hidden";
+    }
+});

@@ -22,7 +22,7 @@ body {
   color: #d2ad32;
 }
 
-.form-result {
+.form-result, .form-code {
   position: relative;
 }
 
@@ -46,6 +46,11 @@ body {
   background-color: #fea426;
 }
 
+.resister-code {
+  border: solid 2px #059422;
+  background-color: #21d492;
+}
+
 .btn::before {
   content: "";
   position: absolute;
@@ -65,20 +70,30 @@ body {
   transform: translateX(40%) rotate(-45deg);
 }
 
-.form-result .container {
+.resister-code::before {
+  background-color: #00a23b;
+  transform: translateX(-95%);
+  opacity: 0.4;
+}
+
+.container {
   position: absolute;
-  right: 0;
+  right: 20px;
   bottom: 2px;
   width: 40%;
 }
 
-.form-result input {
+.container input {
   padding: 7px;
 }
 
-.form-result p {
+.container p {
   line-height: 0.5;
   margin-bottom: 0;
+}
+
+.form-code {
+  visibility: hidden
 }
 
 .camera-canvas {
@@ -100,4 +115,18 @@ body {
 
 .contents li {
   font-size: 25px;
+}
+
+.mode-select {
+  position: relative;
+}
+
+.mode {
+  position: absolute;
+  bottom: 70px;
+  right: 20%;
+}
+
+.mode label:first-of-type {
+  margin-right: 10px;
 }

@@ -39,7 +39,7 @@ router.post('/update-stock', async function (req, res, next) {
   try {
     const updateSql = "UPDATE products_stocks SET stock = stock - 1 WHERE code = ?";
 
-    await Stock.update({ stock: Sequelize.literal('stock - 1') }, { where: { code: req.body.input } });
+    await Stock.update({ stock: Sequelize.literal('stock - 1') }, { where: { code: req.body.verifyCode } });
 
     res.redirect("/");
 

@@ -1,4 +1,4 @@
-const { all } = require('../routes');
+//const { all } = require('../routes');
 const loader = require('./sequelize-loader');
 const Sequelize = loader.Sequelize;
 
