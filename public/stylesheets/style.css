@@ -46,7 +46,7 @@ body {
   background-color: #fea426;
 }
 
-.resister-code {
+.register-code {
   border: solid 2px #059422;
   background-color: #21d492;
 }
@@ -70,7 +70,7 @@ body {
   transform: translateX(40%) rotate(-45deg);
 }
 
-.resister-code::before {
+.register-code::before {
   background-color: #00a23b;
   transform: translateX(-95%);
   opacity: 0.4;

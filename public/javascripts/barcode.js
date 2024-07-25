@@ -1,5 +1,10 @@
 "use strict";
 
+const modeManage = document.getElementById("manage");
+const modeRegister = document.getElementById("register");
+const formResult = document.getElementById("formResult");
+const formCode = document.getElementById("formCode");
+
 Quagga.init({
     inputStream: {
         type: "LiveStream",
@@ -47,6 +52,12 @@ Quagga.onDetected((result) => {
         code = result.codeResult.code;
     }
     if (count >= 3 && /^45/.test(code)) {
+        if (!manage.checked) {
+            console.log("コード登録")
+            document.getElementById("registerCodeInput").value = code;
+            return;
+        }
+        console.log("在庫管理")
         document.getElementById("verifyCodeInput").value = code;
         document.querySelector("#productName").textContent = getProductName(code);
     }
@@ -64,13 +75,9 @@ function getProductName(code) {
     }
 }
 
-const modeManage = document.getElementById("manage");
-const modeResister = document.getElementById("resister");
-const formResult = document.getElementById("formResult");
-const formCode = document.getElementById("formCode");
 
 
-modeManage.addEventListener("change", ()=> {
+modeManage.addEventListener("change", () => {
     if (modeManage.checked) {
         console.log("ラジオテスト")
         formResult.style.visibility = "visible";
@@ -78,9 +85,9 @@ modeManage.addEventListener("change", ()=> {
     }
 });
 
-modeResister.addEventListener("change", ()=> {
+modeRegister.addEventListener("change", () => {
     console.log("test2")
-    if (modeResister.checked) {
+    if (modeRegister.checked) {
         formCode.style.visibility = "visible";
         formResult.style.visibility = "hidden";
     }
