@@ -36,10 +36,6 @@ router.get('/add-stocks', async (req, res, next) => {
 router.post('/update-stock', async (req, res, next) => {
   try {
     await Stock.update({ stock: Sequelize.literal('stock - 1') }, { where: { code: req.body.verifyCode } });
-    //const result = await Stock.update({ stock: Sequelize.literal('stock - 1') }, { where: { code: req.body.verifyCode } });
-    if (!result) {
-      // 未実装
-    }
 
     res.redirect("/");
 
@@ -58,9 +54,7 @@ router.post('/register-code', async (req, res, next) => {
 
   try {
     const result = await Stock.findOne({ where: { name: productName } });
-    if (!result) {
-      // 未実装
-    }
+
     await Stock.update({ code: productCode }, { where: { name: result.name } });
 
     res.redirect("/");

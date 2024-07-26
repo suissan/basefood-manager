@@ -2,8 +2,8 @@
 
 const modeManage = document.getElementById("manage");
 const modeRegister = document.getElementById("register");
-const formResult = document.getElementById("formResult");
-const formCode = document.getElementById("formCode");
+const manageForm = document.getElementById("manageForm");
+const registerForm = document.getElementById("registerForm");
 
 /* バーコードリーダーの設定 */
 Quagga.init({
@@ -82,15 +82,15 @@ function getProductName(code) {
 /* ラジオボタンで在庫管理フォームの表示 */
 modeManage.addEventListener("change", () => {
     if (modeManage.checked) {
-        formResult.style.visibility = "visible";
-        formCode.style.visibility = "hidden";
+        manageForm.style.visibility = "visible";
+        registerForm.style.visibility = "hidden";
     }
 });
 
 /* ラジオボタンでバーコード登録フォームを表示 */
 modeRegister.addEventListener("change", () => {
     if (modeRegister.checked) {
-        formCode.style.visibility = "visible";
-        formResult.style.visibility = "hidden";
+        registerForm.style.visibility = "visible";
+        manageForm.style.visibility = "hidden";
     }
 });

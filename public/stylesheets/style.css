@@ -22,8 +22,8 @@ body {
   color: #d2ad32;
 }
 
-.form-result,
-.form-code {
+.manage-form,
+.register-form {
   position: relative;
 }
 
@@ -42,7 +42,7 @@ body {
   background-color: rgb(16, 144, 179);
 }
 
-.eat {
+.manage-stock {
   border: solid 2px #ca6d0f;
   background-color: #fea426;
 }
@@ -66,7 +66,7 @@ body {
   transform: translateX(-75%) rotate(45deg);
 }
 
-.eat::before {
+.manage-stock::before {
   background-color: #ed472e;
   transform: translateX(40%) rotate(-45deg);
 }
@@ -93,7 +93,7 @@ body {
   margin-bottom: 0;
 }
 
-.form-code {
+.register-form {
   visibility: hidden
 }
 

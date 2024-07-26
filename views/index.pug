@@ -4,7 +4,7 @@ block content
   h1.title ベース🥪の管理は俺に任セロリ🌿
   div.head
     form(action="/products/add-stocks", method="get") 
-      button(type="submit").get-info.btn >> 取得！ <<
+      button(type="submit").btn.get-info >> 取得！ <<
       p ※「取得」は月に一度、商品が届きたときに押して下さい。
       p &nbsp; &nbsp; 公式マイページから当月買った個数を取得します。
   div.mode-select
@@ -15,13 +15,13 @@ block content
       label
         input(type="radio" name="mode")#register
         | コード登録 
-  div#formResult.form-result
+  div#manageForm.manage-form
     div.container
       form(action="/products/update-stock" method="POST")
         input(type="text" name="verifyCode")#verifyCodeInput
-        button(type="submit").btn.eat いただきます！
-      p#result.result 選択した商品: #[span#productName]
-  div#formCode.form-code
+        button(type="submit").btn.manage-stock いただきます！
+      p 選択した商品: #[span#productName]
+  div#registerForm.register-form
     div.container
       form(action="/products/register-code" method="POST")
         input(type="text" name="registerCode")#registerCodeInput
