@@ -4,6 +4,20 @@ const modeManage = document.getElementById("manage");
 const modeRegister = document.getElementById("register");
 const manageForm = document.getElementById("manageForm");
 const registerForm = document.getElementById("registerForm");
+const getProducts = document.querySelectorAll(".productDisplay");
+const styleSheet = document.styleSheets[0]; // /public/stylesheets/style.css
+
+/* バーコード登録済みの商品のリストを塗りつぶす */
+(() => {
+    for (let product of getProducts) {
+        if (product.lastChild.hasAttribute('value')) {
+            product.classList.add('registered');
+            styleSheet.insertRule(
+                '.registered::marker {color: #04e69b}',
+            )
+        }
+    }
+})();
 
 /* バーコードリーダーの設定 */
 Quagga.init({
@@ -71,7 +85,6 @@ Quagga.onDetected((result) => {
  * @returns 商品名
  */
 function getProductName(code) {
-    const getProducts = document.querySelectorAll(".productDisplay");
     for (let product of getProducts) {
         if (product.lastChild.value == code) {
             return product.firstChild.textContent.split(":")[0]; // 商品名を取得
