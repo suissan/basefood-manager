@@ -7,8 +7,10 @@ const registerForm = document.getElementById("registerForm");
 const getProducts = document.querySelectorAll(".productDisplay");
 const styleSheet = document.styleSheets[0]; // /public/stylesheets/style.css
 
-/* バーコード登録済みの商品のリストを塗りつぶす */
+
+/* 読み込みのたびに実行 */
 (() => {
+    /* バーコード登録済みの商品のリストを塗りつぶす */
     for (let product of getProducts) {
         if (product.lastChild.hasAttribute('value')) {
             product.classList.add('registered');
@@ -18,11 +20,9 @@ const styleSheet = document.styleSheets[0]; // /public/stylesheets/style.css
         }
     }
 
+    /* 状況に応じてラジオボタンのデフォルト値を決定 */
     const getRegistered = document.querySelectorAll(".registered");
     if (getRegistered.length != getProducts.length) {
-
-        console.log(getRegistered.length);
-        console.log(getProducts.length);
         modeRegister.checked = true;
     } else {
         modeManage.checked = true;
@@ -82,11 +82,9 @@ Quagga.onDetected((result) => {
     }
     if (count >= 3 && /^45/.test(code)) {
         if (!modeManage.checked) {
-            console.log("コード登録モードだよ")
             document.getElementById("registerCodeInput").value = code;
             return;
         }
-        console.log("在庫管理モードだよ")
         document.getElementById("verifyCodeInput").value = code;
         document.getElementById("productName").textContent = getProductName(code);
     }
@@ -105,7 +103,7 @@ function getProductName(code) {
     }
 }
 
-// ラジオボタンの状態が変更されたときに呼び出される関数
+/* ラジオボタンでどのフォームを表示するか決定する */
 function handleRadioChange() {
     if (modeManage.checked) {
         manageForm.style.visibility = "visible";
