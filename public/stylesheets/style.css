@@ -99,10 +99,6 @@ body {
   margin-bottom: 0;
 }
 
-.register-form {
-  visibility: hidden
-}
-
 .camera-canvas {
   position: relative;
 }

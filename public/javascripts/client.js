@@ -17,6 +17,19 @@ const styleSheet = document.styleSheets[0]; // /public/stylesheets/style.css
             )
         }
     }
+
+    const getRegistered = document.querySelectorAll(".registered");
+    if (getRegistered.length != getProducts.length) {
+
+        console.log(getRegistered.length);
+        console.log(getProducts.length);
+        modeRegister.checked = true;
+    } else {
+        modeManage.checked = true;
+    }
+
+    handleRadioChange();
+
 })();
 
 /* バーコードリーダーの設定 */
@@ -92,18 +105,19 @@ function getProductName(code) {
     }
 }
 
-/* ラジオボタンで在庫管理フォームの表示 */
-modeManage.addEventListener("change", () => {
+// ラジオボタンの状態が変更されたときに呼び出される関数
+function handleRadioChange() {
     if (modeManage.checked) {
         manageForm.style.visibility = "visible";
         registerForm.style.visibility = "hidden";
-    }
-});
-
-/* ラジオボタンでバーコード登録フォームを表示 */
-modeRegister.addEventListener("change", () => {
-    if (modeRegister.checked) {
+    } else if (modeRegister.checked) {
         registerForm.style.visibility = "visible";
         manageForm.style.visibility = "hidden";
     }
-});
+}
+
+/* ラジオボタンで在庫管理フォームの表示 */
+modeManage.addEventListener("change", handleRadioChange);
+
+/* ラジオボタンでバーコード登録フォームを表示 */
+modeRegister.addEventListener("change", handleRadioChange);
