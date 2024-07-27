@@ -10,4 +10,8 @@ router.get('/', async (req, res, next) => {
   res.render("index", { products: results });
 });
 
+router.get('/usage', async (req, res, next) => {
+  res.render("usage");
+});
+
 module.exports = router;

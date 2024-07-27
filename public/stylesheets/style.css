@@ -1,7 +1,6 @@
 body {
   font-family: "RocknRoll One", sans-serif;
   width: 960px;
-  height: 470px;
   margin: 0;
   padding: 0;
   box-sizing: 0;
@@ -11,13 +10,20 @@ body {
 
 .title {
   text-align: center;
+  margin: 15px 0;
 }
 
-.head {
+.usage {
+  position: absolute;
+  right: 10%;
+  top: 1px;
+}
+
+.get-my-product {
   margin: 5px 20px;
 }
 
-.head p {
+.get-my-product p {
   line-height: 0.5;
   color: #d2ad32;
 }
@@ -131,4 +137,44 @@ body {
 
 .mode label:first-of-type {
   margin-right: 10px;
+}
+
+.instruction-container {
+  margin: auto;
+  width: 750px;
+}
+
+.home {
+  color: inherit;
+  text-decoration: none;
+}
+
+.check {
+  color: inherit;
+}
+
+.how-to-use {
+  margin: 20px 0;
+}
+
+.line {
+  line-height: 2.5;
+  margin-bottom: 50px;
+}
+
+.caution {
+  font-size: 12px;
+  color: red;
+}
+
+.preparation {
+  color: #f1cc38;
+}
+
+.done {
+  color: #0ab462;
+}
+
+.example {
+  color: #04e69b;
 }
