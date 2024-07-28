@@ -6,12 +6,16 @@ const Stock = require("../models/stock");
 
 /* ホームページ表示 */
 router.get('/', async (req, res, next) => {
-  const results = await Stock.findAll({ order: [["id", "ASC"]] });
-  console.log(process.env.NODE_ENV)
-  res.render("index", { products: results });
+  try {
+    const results = await Stock.findAll({ order: [["id", "ASC"]] });
+    res.render("index", { products: results });
+
+  } catch (error) {
+    res.status(500).send("エラーが発生しました");
+  }
 });
 
-router.get('/usage', async (req, res, next) => {
+router.get('/usage', (req, res, next) => {
   res.render("usage");
 });
 
