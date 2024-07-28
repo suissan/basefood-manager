@@ -3,14 +3,9 @@
 const Sequelize = require('sequelize');
 require("dotenv").config();
 
-const sequelize = new Sequelize({
-    dialect: 'postgres',
-    host: 'dpg-cqj4ep2j1k6c739mispg-a',
-    database: 'base_iri6',
-    username: 'suimox7',
-    password: 'koqKBVW21leJb05ZZB9ri8FfWLIbDuuB',
-    port: 5432
-  });
+const sequelize = new Sequelize(
+    process.env.DATABASE_URL || 'postgres://suimox7:postgres@localhost/base'
+);
 
 module.exports = {
     database: sequelize,
