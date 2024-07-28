@@ -35,6 +35,6 @@ const stock = loader.database.define(
     },
 );
 
-
+stock.sync();
 
 module.exports = stock;
