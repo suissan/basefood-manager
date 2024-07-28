@@ -17,7 +17,8 @@
     "pg-hstore": "^2.3.4",
     "pug": "2.0.0-beta11",
     "puppeteer": "^22.13.0",
-    "sequelize": "^6.37.3"
+    "sequelize": "^6.37.3",
+    "sequelize-cli": "^6.6.2"
   },
   "license": "MIT"
 }
