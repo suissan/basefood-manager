@@ -35,6 +35,4 @@ const stock = loader.database.define(
     },
 );
 
-stock.sync({ force: true });
-
 module.exports = stock;
