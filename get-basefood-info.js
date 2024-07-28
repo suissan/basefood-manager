@@ -1,19 +1,20 @@
 'use strict';
 
 const puppeteer = require("puppeteer");
+require("dotenv").config();
 
 async function getBaseInfo() {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
 
-    await page.goto("https://shop.basefood.co.jp/account/login");
-    await page.type("#CustomerEmail", "suiMox7.sg@gmail.com");
-    await page.type("#CustomerPassword", "u6e67u958b");
+    await page.goto(process.env.LOGIN_URL);
+    await page.type("#CustomerEmail", process.env.REGISTER_MAIL_ADDRESS);
+    await page.type("#CustomerPassword", process.env.REGISTER_PASSWORD);
     await page.click('button[form="login"]');
 
     await page.waitForNavigation();
 
-    await page.goto("https://shop.basefood.co.jp/mypage/subscription");
+    await page.goto(process.env.TARGET_URL);
 
     await page.waitForSelector('.mypage__products');
 
