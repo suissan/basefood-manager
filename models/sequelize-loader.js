@@ -9,6 +9,7 @@ const sequelize = new Sequelize({
     database: 'base_iri6',
     username: 'suimox7',
     password: 'koqKBVW21leJb05ZZB9ri8FfWLIbDuuB',
+    port: 5432
   });
 
 module.exports = {
