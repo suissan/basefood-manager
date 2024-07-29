@@ -1,1 +1,0 @@
-docker pull ghcr.io/puppeteer/puppeteer:16.1.0
