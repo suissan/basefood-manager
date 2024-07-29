@@ -28,7 +28,7 @@ router.get('/add-stocks', async (req, res, next) => {
   } catch (error) {
 
     // エラーハンドリング
-    res.status(500).send("エラーが発生しました");
+    res.status(500).send(error);
   }
 });
 
