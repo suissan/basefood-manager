@@ -10,7 +10,7 @@ const Sequelize = loader.Sequelize;
 /* 個数を取得し表示する */
 router.get('/add-stocks', async (req, res, next) => {
   try {
-    const products = await baseManager.getBaseInfo(res);
+    const products = await baseManager.getBaseInfo();
 
     for (const product of products) {
       const results = await Stock.findOne({ where: { name: product.name } });
@@ -28,7 +28,7 @@ router.get('/add-stocks', async (req, res, next) => {
   } catch (error) {
 
     // エラーハンドリング
-    res.status(500).send("エラーが発生しました");
+    //res.status(500).send("エラーが発生しました");
     console.log('エラーだよ' + error);
   }
 });

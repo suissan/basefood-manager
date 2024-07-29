@@ -56,7 +56,7 @@ async function getBaseInfo(res) {
 
     } catch (error) {
         console.log(`puppeteerのエラー: ${error}`);
-        res.send(`Something went wrong while running Puppeteer: ${error}`);
+        //res.send(`Something went wrong while running Puppeteer: ${error}`);
     }
 }
 
