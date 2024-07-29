@@ -10,18 +10,18 @@ const Sequelize = loader.Sequelize;
 /* 個数を取得し表示する */
 router.get('/add-stocks', async (req, res, next) => {
   try {
-    await baseManager.getBaseInfo();
+    const products = await baseManager.getBaseInfo();
 
-    //for (const product of products) {
-    //  const results = await Stock.findOne({ where: { name: product.name } });
-//
-    //  if (!results) {
-    //    await Stock.create({ name: product.name, stock: product.number });
-//
-    //  } else {
-    //    await Stock.update({ stock: product.number }, { where: { name: product.name } });
-    //  }
-    //}
+    for (const product of products) {
+      const results = await Stock.findOne({ where: { name: product.name } });
+
+      if (!results) {
+        await Stock.create({ name: product.name, stock: product.number });
+
+      } else {
+        await Stock.update({ stock: product.number }, { where: { name: product.name } });
+      }
+    }
 
     res.redirect("/");
 

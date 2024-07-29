@@ -4,7 +4,19 @@ const puppeteer = require("puppeteer");
 require("dotenv").config();
 
 async function getBaseInfo() {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        headless: 'new',
+        defaultViewport: null,
+        args: [
+            "--disable-gpu",
+            "--disable-dev-shm-usage",
+            "--disable-setuid-sandbox",
+            "--no-first-run",
+            "--no-sandbox",
+            "--no-zygote",
+            "--single-process"
+        ]
+    });
     const page = await browser.newPage();
 
     await page.goto(process.env.LOGIN_URL);
