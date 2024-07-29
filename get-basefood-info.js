@@ -3,8 +3,9 @@
 const puppeteer = require("puppeteer");
 require("dotenv").config();
 
-async function getBaseInfo(res) {
+async function getBaseInfo() {
     const browser = await puppeteer.launch({
+        headless: false,
         args: [
             "--disable-setuid-sandbox",
             "--no-sandbox",
