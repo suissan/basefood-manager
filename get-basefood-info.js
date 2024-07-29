@@ -5,7 +5,7 @@ require("dotenv").config();
 
 async function getBaseInfo() {
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
     });
     const page = await browser.newPage();
 
