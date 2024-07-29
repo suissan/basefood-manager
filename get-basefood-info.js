@@ -19,6 +19,9 @@ async function getBaseInfo() {
     try {
         const page = await browser.newPage();
         console.log("ログ2");
+        const dirname = path.join(__dirname, 'img')
+        const destination = path.join(dirname, filename)
+        await fsPromises.mkdir(path.dirname(destination))
         await page.goto("https://shop.basefood.co.jp/account/login");
         console.log("ログ3");
         await page.type("#CustomerEmail", "suiMox7.sg@gmail.com");
