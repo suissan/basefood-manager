@@ -10,7 +10,7 @@ const Sequelize = loader.Sequelize;
 /* 個数を取得し表示する */
 router.get('/add-stocks', async (req, res, next) => {
   try {
-    const products = await baseManager.getBaseInfo();
+    const products = await baseManager.getBaseInfo(res);
 
     for (const product of products) {
       const results = await Stock.findOne({ where: { name: product.name } });
