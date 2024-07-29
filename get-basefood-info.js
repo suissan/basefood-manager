@@ -14,10 +14,13 @@ async function getBaseInfo() {
         executablePath: process.env.PUPPETEER_EXECUTABLE_PATH
     });
 
+    console.log("ログ1");
+
     try {
         const page = await browser.newPage();
-
+        console.log("ログ2");
         await page.goto(process.env.LOGIN_URL);
+        console.log("ログ3");
         await page.type("#CustomerEmail", process.env.REGISTER_MAIL_ADDRESS);
         await page.type("#CustomerPassword", process.env.REGISTER_PASSWORD);
         await page.click('button[form="login"]');
