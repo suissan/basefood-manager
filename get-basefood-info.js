@@ -4,7 +4,15 @@ const puppeteer = require("puppeteer");
 require("dotenv").config();
 
 async function getBaseInfo(res) {
-    const browser = await puppeteer.launch(process.env.PUPPETEER_EXECUTABLE_PATH);
+    const browser = await puppeteer.launch({
+        args: [
+            "--disable-setuid-sandbox",
+            "--no-sandbox",
+            "--single-process",
+            "--no-zygote",
+        ],
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH
+    });
 
     try {
         const page = await browser.newPage();
