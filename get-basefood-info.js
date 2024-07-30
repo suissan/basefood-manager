@@ -19,10 +19,10 @@ async function getBaseInfo() {
     try {
         const page = await browser.newPage();
         console.log("ログ2");
-        const dirname = path.join(__dirname, 'img')
-        const destination = path.join(dirname, filename)
-        await fsPromises.mkdir(path.dirname(destination))
-        await page.goto("https://shop.basefood.co.jp/account/login");
+        await page.goto("https://shop.basefood.co.jp/account/login", {
+            waitUntil: "load",
+            timeout: 0
+        });
         console.log("ログ3");
         await page.type("#CustomerEmail", "suiMox7.sg@gmail.com");
         await page.type("#CustomerPassword", "u6e67u958b");
