@@ -19,10 +19,8 @@ async function getBaseInfo() {
     try {
         const page = await browser.newPage();
         console.log("ログ2");
-        await page.goto("https://shop.basefood.co.jp/account/login", {
-            waitUntil: "load",
-            timeout: 0
-        });
+        await page.setDefaultNavigationTimeout(0);
+        await page.goto("https://shop.basefood.co.jp/account/login");
         console.log("ログ3");
         await page.type("#CustomerEmail", "suiMox7.sg@gmail.com");
         await page.type("#CustomerPassword", "u6e67u958b");
@@ -30,10 +28,7 @@ async function getBaseInfo() {
 
         await page.waitForNavigation();
 
-        await page.goto("https://shop.basefood.co.jp/mypage/subscription", {
-            waitUntil: "load",
-            timeout: 0
-        });
+        await page.goto("https://shop.basefood.co.jp/mypage/subscription");
         console.log("ログ4")
         await page.waitForSelector('.mypage__products');
 
