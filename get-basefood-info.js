@@ -30,8 +30,11 @@ async function getBaseInfo() {
 
         await page.waitForNavigation();
 
-        await page.goto("https://shop.basefood.co.jp/mypage/subscription");
-
+        await page.goto("https://shop.basefood.co.jp/mypage/subscription", {
+            waitUntil: "load",
+            timeout: 0
+        });
+        console.log("ログ4")
         await page.waitForSelector('.mypage__products');
 
         const boughtNumberArray = await page.evaluate(() => {
