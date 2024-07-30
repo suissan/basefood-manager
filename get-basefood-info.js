@@ -37,7 +37,7 @@ async function getBaseInfo() {
                 }
                 const productName = productElements[index - 2].children[1].innerHTML.trim().split("\n")[0]; // 商品の名前
                 const productStock = ele.options[ele.selectedIndex].innerText.match(/\d+/)[0]; // 買った個数
-                if (editedNumber != 0) {
+                if (productStock != 0) {
                     const productInfo = {};
                     productInfo.name = productName;
                     productInfo.stock = productStock;
