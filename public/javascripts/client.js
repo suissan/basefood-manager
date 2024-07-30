@@ -39,7 +39,7 @@ Quagga.init({
         target: document.querySelector('#cameraCanvas')
     },
     constraints: {
-        facingMode: "environment"
+        facingMode: "user"
     },
     decoder: {
         readers: ["ean_reader"]

@@ -16,10 +16,10 @@ router.get('/add-stocks', async (req, res, next) => {
       const results = await Stock.findOne({ where: { name: product.name } });
 
       if (!results) {
-        await Stock.create({ name: product.name, stock: product.number });
+        await Stock.create({ name: product.name, stock: product.stock });
 
       } else {
-        await Stock.update({ stock: product.number }, { where: { name: product.name } });
+        await Stock.update({ stock: product.stock }, { where: { name: product.name } });
       }
     }
 
@@ -28,8 +28,8 @@ router.get('/add-stocks', async (req, res, next) => {
   } catch (error) {
 
     // エラーハンドリング
-    //res.status(500).send("エラーが発生しました");
-    console.log('エラーだよ' + error);
+    res.status(500).send("エラーが発生しました");
+    console.log(`エラー: ${error}`);
   }
 });
 
@@ -44,6 +44,7 @@ router.post('/update-stock', async (req, res, next) => {
 
     // エラーハンドリング
     res.status(500).send("エラーが発生しました");
+    console.log(`エラー: ${error}`);
   }
 });
 
@@ -64,6 +65,7 @@ router.post('/register-code', async (req, res, next) => {
 
     // エラーハンドリング
     res.status(500).send("エラーが発生しました");
+    console.log(`エラー: ${error}`);
   }
 });
 

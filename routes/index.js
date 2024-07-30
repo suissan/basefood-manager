@@ -12,6 +12,7 @@ router.get('/', async (req, res, next) => {
 
   } catch (error) {
     res.status(500).send("エラーが発生しました");
+    console.log(`エラー: ${error}`);
   }
 });
 
