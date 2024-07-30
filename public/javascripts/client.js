@@ -7,7 +7,6 @@ const registerForm = document.getElementById("registerForm");
 const getProducts = document.querySelectorAll(".productDisplay");
 const styleSheet = document.styleSheets[0]; // /public/stylesheets/style.css
 
-
 /* 読み込みのたびに実行 */
 (() => {
     /* バーコード登録済みの商品のリストを塗りつぶす */
@@ -36,10 +35,10 @@ const styleSheet = document.styleSheets[0]; // /public/stylesheets/style.css
 Quagga.init({
     inputStream: {
         type: "LiveStream",
-        target: document.querySelector('#cameraCanvas')
-    },
-    constraints: {
-        facingMode: "user"
+        target: document.querySelector('#cameraCanvas'),
+        constraints: {
+            facingMode: "user"
+        },
     },
     decoder: {
         readers: ["ean_reader"]
